@@ -1,0 +1,46 @@
+.todo {
+
+   &__main {
+      
+   }
+
+   &__list {
+      background-color: #fff;
+      padding: 10px 30px 60px 30px;
+      min-height: 500px;
+      padding-bottom: 40px;
+   }
+
+   &__item {
+      margin-bottom: 5px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      border-bottom: 2px solid black;
+      padding: 15px 5px;
+      &:hover{
+         background-color:#fcfcfc;
+         transition: .2s;
+      }
+      & span {
+         flex: 1;
+      }
+      & svg {
+         width: 40px;
+         height: 40px;
+         background-color: #fff;
+         border-radius: 50%;
+      }
+   }
+
+   &__item--completed {
+      text-decoration: line-through;
+      word-wrap: break-word;
+      color :#ced0db;
+      & svg {
+         fill: green;
+         background-color: #d3ffc1;
+      }
+   }
+}

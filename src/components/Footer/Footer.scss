@@ -1,0 +1,19 @@
+.footer {
+position: relative;
+   &__add-todo {
+      position: absolute;
+      left: 50%;
+      bottom: 50%;
+      transform: translate(-50%,50%);
+      & svg {
+         cursor: pointer;
+         background-color:#d3ffc4;
+         fill: green;
+         border-radius: 50%;
+         &:hover{
+            background-color: #b2f998;
+            transition: .3s ease-in-out;
+         }
+      }
+   }
+}
