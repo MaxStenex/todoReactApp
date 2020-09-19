@@ -6,4 +6,31 @@
       font-size: 35px;
       font-weight: 700;
    }
+   &__todo-types{
+      display: flex;
+      background-color: #fff;
+   }
+   &__todo-type{
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      word-break: break-word;
+      text-align: center;
+      border: 1px solid #C2EFFA;
+      padding: 5px;
+      font-size: 22px;
+      cursor: pointer;
+      border-radius: 3px;
+      &--current{
+         background-color: #A8DCF9;
+      }
+      &:not(.header__todo-type--current):hover{
+         background-color: #f2fbff;
+         transition: .3s ease-in-out;
+      }
+      @media (max-width:450px) {
+         font-size: 15px;
+      }
+   }
 }

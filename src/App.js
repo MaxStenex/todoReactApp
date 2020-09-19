@@ -1,18 +1,22 @@
 import React from 'react';
 import './App.scss';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
-import TodoList from './components/TodoList/TodoList';
+import FooterContainer from './components/Footer/FooterContainer';
+import HeaderContainer from './components/Header/HeaderContainer';
+import TodoListContainer from './components/TodoList/TodoListContainer';
 import './normalize.scss'
 
 function App() {
   return (
     <div className="app__wrapper">
-      <Header />
+      <HeaderContainer />
       <main>
-        <TodoList />
+        <div className="todo__main">
+          <div className="container">
+            <TodoListContainer />
+          </div>
+        </div>
       </main>
-      <Footer />
+      <FooterContainer />
     </div>
   );
 }

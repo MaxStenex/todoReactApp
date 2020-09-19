@@ -1,14 +1,17 @@
 body {
-   background-color: #F0EFE9;
+   background: rgb(2,0,36);
+   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(198,198,255,1) 0%, rgba(232,235,255,1) 0%, rgba(196,240,250,1) 1%, rgba(20,112,240,1) 100%);
+   user-select: none;
 }
 
 .app__wrapper{
-   color :#4d4d4f;
-   padding-top: 150px;
+   color :#000;
+   font-family: 'Bree Serif', serif;
+   padding-top: 50px;  
 }
 
 .container {
    max-width: 560px;
    margin: 0 auto;
-   padding: 0px 30px;
+   padding: 0px 10px;
 }

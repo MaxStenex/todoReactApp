@@ -1,19 +1,35 @@
 .footer {
-position: relative;
-   &__add-todo {
-      position: absolute;
-      left: 50%;
-      bottom: 50%;
-      transform: translate(-50%,50%);
+   &__add-form {
+      padding: 10px;
+      background-color: #fff;
+      display: flex;
       & svg {
          cursor: pointer;
-         background-color:#d3ffc4;
-         fill: green;
          border-radius: 50%;
-         &:hover{
-            background-color: #b2f998;
-            transition: .3s ease-in-out;
+         background-color: #3273C7;
+         fill: #fff;
+         width: 50px;
+         height: 50px;
+         min-width: 50px;
+         &:hover,
+         &:focus{
+            transition: .5s ease-in-out;
+            animation: spin .5s;
+            @keyframes spin {
+               50%{
+                  transform: rotate(75deg);
+               }
+            }
          }
       }
+   }
+   &__add-input{
+      padding: 5px 5px 5px 15px;
+      border-radius: 5px;
+      margin-right: 5px;
+      font-size: 20px;
+      flex:1;
+      min-width: 200px;
+      background-color: #C2EFFA;
    }
 }

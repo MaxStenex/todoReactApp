@@ -1,19 +1,23 @@
 import React from 'react';
 import './Footer.scss';
+import { ReactComponent as AddTodoIcon } from './AddTodoIcon.svg';
 
 const Footer = (props) => {
+   const inputRef = React.createRef();
    return (
       <footer className="footer">
          <div className="container">
-            <div className="footer__add-todo">
-               <svg height="60px" viewBox="0 0 512 512" width="60px" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                     d="m256 512c-141.164062 0-256-114.835938-256-256s114.835938-256 256-256 256 114.835938 256 256-114.835938 256-256 256zm0-480c-123.519531 0-224 100.480469-224 224s100.480469 224 224 224 224-100.480469 224-224-100.480469-224-224-224zm0 0" />
-                  <path
-                     d="m368 272h-224c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h224c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
-                  <path
-                     d="m256 384c-8.832031 0-16-7.167969-16-16v-224c0-8.832031 7.167969-16 16-16s16 7.167969 16 16v224c0 8.832031-7.167969 16-16 16zm0 0" />
-               </svg>
+            <div className="footer__add-form">
+               <input type="text" className="footer__add-input" placeholder='Type here' ref={inputRef}
+                  onChange={() => { props.changeInputText(inputRef.current.value) }} tabIndex={1} />
+               <AddTodoIcon tabIndex={2} onClick={() => {
+                  if (inputRef.current.value.trim() !== '') {
+                     props.addNewTodo(inputRef.current.value);
+                     inputRef.current.value = '';
+                  } else {
+                     return
+                  }
+               }} />
             </div>
          </div>
       </footer>

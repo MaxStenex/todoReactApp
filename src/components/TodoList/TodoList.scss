@@ -17,11 +17,14 @@
       display: flex;
       align-items: center;
       cursor: pointer;
-      border-bottom: 2px solid black;
       padding: 15px 5px;
       &:hover{
-         background-color:#fcfcfc;
-         transition: .2s;
+         background-color:#f2fbff;
+         transition: .3s;
+         &:not(.todo__item--completed) svg {
+            background-color: #A8DCF9;
+            transition: .3s;
+         }
       }
       & span {
          flex: 1;
@@ -37,10 +40,23 @@
    &__item--completed {
       text-decoration: line-through;
       word-wrap: break-word;
-      color :#ced0db;
+      color :#57d1f9;
       & svg {
-         fill: green;
-         background-color: #d3ffc1;
+         &:hover {
+            background-color: #fc94a7;
+            fill:black;
+            transition: .5s;
+            animation: shake .5s;
+            @keyframes shake {
+               10%{
+                  transform: rotate(10deg);
+               }
+               50%{
+                  transform: rotate(-10deg);
+               }
+            }
+         }
       }
    }
 }
+

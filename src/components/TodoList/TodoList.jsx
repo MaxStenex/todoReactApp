@@ -1,18 +1,59 @@
 import React from 'react';
 import './TodoList.scss';
-import { ReactComponent as ItemIcon } from './TodoItemIcon.svg';
+import { ReactComponent as CheckMark } from './CheckMark.svg';
+import { ReactComponent as XMark } from './XMark.svg';
 
 const TodoList = (props) => {
-   return (
-      <div className="todo__main">
-         <div className="container">
+   switch (props.currentTodos) {
+      case 'completed': {
+         return (
             <ul className="todo__list">
-               <li className="todo__item"><span>First Do</span> <ItemIcon /></li>
-               <li className="todo__item todo__item--completed"><span>Second</span> <ItemIcon /></li>
+               {
+                  props.todoList
+                     .filter((todo) => todo.done === true)
+                     .map((todo) => {
+                        return <li className={'todo__item' + (todo.done ? ' todo__item--completed' : '')} key={todo.id}
+                           onClick={() => { props.toggleTodoAC(todo.id) }}>
+                           <span>{todo.text}</span>
+                           {todo.done ? <XMark onClick={() => { props.deleteTodoAC(todo.id) }} /> : <CheckMark />}
+                        </li>
+                     })
+               }
             </ul>
-         </div>
-      </div>
-   )
+         )
+      } case 'not completed': {
+         return (
+            <ul className="todo__list">
+               {
+                  props.todoList
+                     .filter((todo) => todo.done === false)
+                     .map((todo) => {
+                        return <li className={'todo__item' + (todo.done ? ' todo__item--completed' : '')} key={todo.id}
+                           onClick={() => { props.toggleTodoAC(todo.id) }}>
+                           <span>{todo.text}</span>
+                           {todo.done ? <XMark onClick={() => { props.deleteTodoAC(todo.id) }} /> : <CheckMark />}
+                        </li>
+                     })
+               }
+            </ul>
+         )
+      }
+      default:
+         return (
+            <ul className="todo__list">
+               {
+                  props.todoList.map((todo) => {
+                     return <li className={'todo__item' + (todo.done ? ' todo__item--completed' : '')} key={todo.id}
+                        onClick={() => { props.toggleTodoAC(todo.id) }}>
+                        <span>{todo.text}</span>
+                        {todo.done ? <XMark onClick={() => { props.deleteTodoAC(todo.id) }} /> : <CheckMark />}
+                     </li>
+                  })
+               }
+            </ul>
+         )
+   }
+
 };
 
 export default TodoList;
