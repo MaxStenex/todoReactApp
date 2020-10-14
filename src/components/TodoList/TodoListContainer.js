@@ -1,28 +1,22 @@
-import { connect } from "react-redux";
-import { createTodoAC, deleteTodoAC, toggleTodoAC } from "../../actions/todoItemAC";
-import TodoList from "./TodoList";
+import { connect } from 'react-redux';
+import {
+  createTodo,
+  deleteTodo,
+  toggleTodo,
+} from '../../actions/todoListActions';
+import TodoList from './TodoList';
 
 const mapStateToProps = (state) => {
-   return {
-      todoList: state.todoList.todoList,
-      currentTodos: state.todosTypes.currentTodos
-   }
+  return {
+    todoList: state.todoList.todoList,
+    currentTodos: state.todosTypes.currentTodos,
+  };
 };
 
-const mapDispatchToProps = (dispatch) => {
-   return {
-      addNewTodo: (text) => {
-         dispatch(createTodoAC(text))
-      },
-      deleteTodoAC: (id) => {
-         dispatch(deleteTodoAC(id))
-      },
-      toggleTodoAC: (id) => {
-         dispatch(toggleTodoAC(id))
-      },
-   }
-};
-
-const TodoListContainer = connect(mapStateToProps, mapDispatchToProps)(TodoList);
+const TodoListContainer = connect(mapStateToProps, {
+  createTodo,
+  deleteTodo,
+  toggleTodo,
+})(TodoList);
 
 export default TodoListContainer;

@@ -3,15 +3,15 @@ import './App.scss';
 import FooterContainer from './components/Footer/FooterContainer';
 import HeaderContainer from './components/Header/HeaderContainer';
 import TodoListContainer from './components/TodoList/TodoListContainer';
-import './normalize.scss'
+import './normalize.scss';
 
-function App() {
+const App = () => {
   return (
-    <div className="app__wrapper">
+    <div className='app__wrapper'>
       <HeaderContainer />
       <main>
-        <div className="todo__main">
-          <div className="container">
+        <div className='todo__main'>
+          <div className='container'>
             <TodoListContainer />
           </div>
         </div>
@@ -19,6 +19,6 @@ function App() {
       <FooterContainer />
     </div>
   );
-}
+};
 
 export default App;

@@ -1,13 +1,11 @@
-import todosTypesReducer from "./reducers/todos-types-reducer";
-import todoInputReducer from "./reducers/todo-input-reducer";
-import todoListReducer from "./reducers/todo-list-reducer";
+import todoListReducer from './reducers/todoListReducer';
+import todoTypesReducer from './reducers/todoTypesReducer';
 
-const { createStore, combineReducers } = require("redux");
+const { createStore, combineReducers } = require('redux');
 
 const reducers = combineReducers({
-   todoList: todoListReducer,
-   todoInput: todoInputReducer,
-   todosTypes: todosTypesReducer,
+  todoList: todoListReducer,
+  todosTypes: todoTypesReducer,
 });
 
 const store = createStore(reducers);
