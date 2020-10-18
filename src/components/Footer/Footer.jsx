@@ -3,8 +3,18 @@ import './Footer.scss';
 import { ReactComponent as AddTodoIcon } from '../../assets/AddTodoIcon.svg';
 
 const Footer = ({ createTodo }) => {
-  debugger;
   const [todoText, setTodoText] = useState('');
+  const addTodo = () => {
+    if (todoText.trim() !== '') {
+      createTodo(todoText);
+      setTodoText('');
+    }
+  };
+  const addTodoOnEnter = (evt) => {
+    if (evt.key === 'Enter') {
+      addTodo();
+    }
+  };
 
   return (
     <footer className='footer'>
@@ -19,18 +29,9 @@ const Footer = ({ createTodo }) => {
             }}
             tabIndex={1}
             value={todoText}
+            onKeyPress={addTodoOnEnter}
           />
-          <AddTodoIcon
-            tabIndex={2}
-            onClick={() => {
-              if (todoText.trim() !== '') {
-                createTodo(todoText);
-                setTodoText('');
-              } else {
-                return;
-              }
-            }}
-          />
+          <AddTodoIcon tabIndex={2} onClick={addTodo} />
         </div>
       </div>
     </footer>

@@ -4,7 +4,7 @@ import { ReactComponent as CheckMark } from '../../assets/CheckMark.svg';
 import { ReactComponent as XMark } from '../../assets/XMark.svg';
 
 const TodoList = ({ currentTodos, todoList, ...props }) => {
-  const filterTodos = () => {
+  const filteredTodos = () => {
     switch (currentTodos) {
       case 'all':
         return todoList;
@@ -19,7 +19,7 @@ const TodoList = ({ currentTodos, todoList, ...props }) => {
 
   return (
     <ul className='todo__list'>
-      {filterTodos().map((todo) => {
+      {filteredTodos().map((todo) => {
         return (
           <li
             className={
